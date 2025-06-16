@@ -142,7 +142,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       // Verificar stock para productos físicos
       if (product.type === 'physical' && product.stockQuantity !== null) {
-        if (product.stockQuantity < validation.data.quantity) {
+        const quantity = validation.data.quantity ?? 1;
+        if (product.stockQuantity < quantity) {
           return res.status(400).json({ 
             message: "Stock insuficiente",
             available: product.stockQuantity 

@@ -198,6 +198,10 @@ export class MemStorage implements IStorage {
       const product: Product = {
         id: this.productId++,
         ...prod,
+        originalPrice: prod.originalPrice || null,
+        brand: prod.brand || null,
+        downloadUrl: prod.downloadUrl || null,
+        tags: prod.tags || [],
         createdAt: new Date(),
       };
       this.products.set(product.id, product);
@@ -249,7 +253,7 @@ export class MemStorage implements IStorage {
       results = results.filter(p => 
         p.name.toLowerCase().includes(search) ||
         p.description.toLowerCase().includes(search) ||
-        p.tags.some(tag => tag.toLowerCase().includes(search))
+        (p.tags && p.tags.some(tag => tag.toLowerCase().includes(search)))
       );
     }
 
