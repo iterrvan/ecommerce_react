@@ -108,7 +108,12 @@ This is a modern full-stack e-commerce platform built with React, Express, TypeS
 
 ## Changelog
 - June 16, 2025. Initial setup
+- June 16, 2025. Interfaz completamente traducida al español
+- June 16, 2025. Configuración de sesiones añadida para carrito funcional
+- June 16, 2025. Guía completa de integración con Laravel API creada
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Interface language: Spanish (fully translated)
+Backend integration: Laravel REST API (documentation provided)

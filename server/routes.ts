@@ -113,6 +113,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const summary = await storage.getCartSummary(sessionId);
       res.json(summary);
     } catch (error) {
+      console.error('Error en carrito:', error);
       res.status(500).json({ message: "Error al obtener carrito" });
     }
   });
