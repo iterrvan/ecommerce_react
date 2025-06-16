@@ -309,6 +309,16 @@ export class MemStorage implements IStorage {
       id: this.productId++,
       createdAt: new Date(),
       ...product,
+      brand: product.brand ?? null,
+      originalPrice: product.originalPrice ?? null,
+      images: product.images ?? [],
+      categoryId: product.categoryId ?? null,
+      stockQuantity: product.stockQuantity ?? null,
+      tags: product.tags ?? [],
+      downloadUrl: product.downloadUrl ?? null,
+      inStock: product.inStock ?? true,
+      isFeatured: product.isFeatured ?? false,
+      isOnSale: product.isOnSale ?? false,
     };
     this.products.set(newProduct.id, newProduct);
     return newProduct;
@@ -411,6 +421,8 @@ export class MemStorage implements IStorage {
       id: this.orderId++,
       createdAt: new Date(),
       ...order,
+      phone: order.phone ?? null,
+      status: order.status ?? "pending",
     };
     this.orders.set(newOrder.id, newOrder);
     return newOrder;
