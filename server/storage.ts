@@ -319,6 +319,8 @@ export class MemStorage implements IStorage {
       inStock: product.inStock ?? true,
       isFeatured: product.isFeatured ?? false,
       isOnSale: product.isOnSale ?? false,
+      rating: product.rating ?? "4.5",
+      reviewCount: product.reviewCount ?? 0,
     };
     this.products.set(newProduct.id, newProduct);
     return newProduct;
@@ -354,7 +356,7 @@ export class MemStorage implements IStorage {
 
     if (existingItem) {
       // Actualizar cantidad
-      existingItem.quantity += item.quantity;
+      existingItem.quantity += (item.quantity ?? 1);
       this.cartItems.set(existingItem.id, existingItem);
       return existingItem;
     }
@@ -364,6 +366,7 @@ export class MemStorage implements IStorage {
       id: this.cartItemId++,
       createdAt: new Date(),
       ...item,
+      quantity: item.quantity ?? 1,
     };
     this.cartItems.set(newItem.id, newItem);
     return newItem;
